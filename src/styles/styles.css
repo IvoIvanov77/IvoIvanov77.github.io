@@ -1,0 +1,68 @@
+
+.App {
+  font-family: sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+.tree-viewer-container {
+    display: flex;
+}
+
+.sidebar{
+    width: 35%;
+    overflow:auto;
+    height:90vh;
+}
+
+.sidebar ul {
+    min-height: calc(100% - 34px);
+    padding-left: 20px;
+}
+
+.content-viewer-container{
+    width: 70%;
+    overflow:auto;
+    height:90vh;
+}
+
+.content-viewer{
+    min-height: 90%;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
+    /*padding-left: 30px;*/
+    padding: 0;
+    margin: 0;
+    height: 90vh
+}
+
+.hljs {
+    height: 100vh;
+    padding: 30px 30px 0 30px;
+}
+
+@media only screen and (max-width: 640px) {
+    .component {
+        width: 100%;
+        display: block
+    }
+}
+
+.form-container {
+    width: 40%;
+    margin: auto;
+}
+
+.error {
+    color: tomato;
+}
+
+.success {
+    color: blue;
+}
