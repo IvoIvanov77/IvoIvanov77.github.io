@@ -22,20 +22,9 @@ const RepoCard = props => {
 
           </td>
           <td>
-              <Link to={'/repository/' + props.repo.id}> explore</Link>
+              <Link to={`/${props.repo.owner.login}/${props.repo.name}`}> explore</Link>
           </td>
       </tr>
-    // <div className="col-sm-12 col-md-12 country-card">
-    //   <div className="country-card-container border-gray rounded border mx-2 my-3 d-flex flex-row align-items-center p-0 bg-light">
-    //     <div className="px-3">
-    //
-    //       <h3 className="country-name text-dark d-block font-weight-bold">{ props.repo.name }</h3>
-    //       <p className="country-region text-secondary">{ props.repo.description }</p>
-    //
-    //     </div>
-    //
-    //   </div>
-    // </div>
   )
 };
 

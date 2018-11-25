@@ -1,13 +1,14 @@
 import React, {Component} from "react";
-import {getRepoByOwnerAndRepoName, getReposWithLinks} from "../../actions/actions";
 import {connect} from "react-redux"
 import {Redirect} from "react-router-dom";
 
-class SearchBox extends Component {
+class RepoSearchBoxTest extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            userInput: '',
             owner: '',
+            repo: '',
             redirect:false
 
         };
@@ -24,14 +25,17 @@ class SearchBox extends Component {
 
     onSubmit(e){
         e.preventDefault();
-        const {dispatch} =this.props;
-        const {owner} = this.state;
-        dispatch(getReposWithLinks(owner));
-        this.setState({redirect:true})
+        const [owner, repo] = this.state.userInput.split('/');
+        this.setState({
+            owner,
+            repo,
+            redirect:true
+        })
 
     }
 
     render() {
+        const {redirect, owner, repo} = this.state;
         return (
             <div className="col-sm-3 col-md-3">
                 <form
@@ -44,9 +48,8 @@ class SearchBox extends Component {
                             type="text"
                             className="form-control"
                             placeholder="Search"
-                            name="owner"
-                            style={{backgroundColor: '#404448'}}
-                            value={this.state.owner}
+                            name="userInput"
+                            value={this.state.userInput}
                             onChange={this.handleOnChange}
                         />
                         <div className="input-group-btn">
@@ -59,9 +62,10 @@ class SearchBox extends Component {
                         </div>
                     </div>
                 </form>
+                {redirect && <Redirect to={`/${owner}/${repo}`}/>}
             </div>
         );
     }
 }
 
-export const SearchBoxContainer = connect()(SearchBox);
+export const SearchBox = connect()(RepoSearchBoxTest);

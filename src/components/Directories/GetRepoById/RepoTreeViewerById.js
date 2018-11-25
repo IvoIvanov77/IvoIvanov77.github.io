@@ -1,16 +1,16 @@
-import {decorators, Treebeard} from "react-treebeard";
+import {Treebeard} from "react-treebeard";
 import React, {Component} from "react";
-import {connect} from 'react-redux'
-import {getRepoByOwnerAndRepoName, getRepoTreeById} from "../../actions/actions";
-import {ContentViewerContainer} from "../FileContent/ContentViewerContainer";
-import styles from '../../styles/treeViewStyles';
-import treeStyles from '../../styles/not-default';
-import * as filters from "../../helpers/filter";
+
+import {getRepoTreeById} from "../../../actions/actions";
+import {ContentViewerContainer} from "../../FileContent/ContentViewerContainer";
+import styles from '../../../styles/treeViewStyles';
+import treeStyles from '../../../styles/not-default';
+import * as filters from "../../../helpers/filter";
 
 const README = 'README.MD';
 
 
-export class TreeViewerTest extends Component {
+export class TreeViewerById extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,33 +22,21 @@ export class TreeViewerTest extends Component {
 
 
     componentDidMount() {
-        const owner = this.props.match.params.owner;
-        const repoName = this.props.match.params.repoName;
-        this.props.dispatch(getRepoByOwnerAndRepoName(owner, repoName));
-
+        const id = this.props.match.params.id;
+        this.props.dispatch(getRepoTreeById(id));
     }
 
     getData = () => {
-        const{repo, tree} =this.props;
         return {
             type: 'tree',
-            name: repo ? repo.name : 'root',
+            name: 'temp',
             toggled: true,
-            children: tree
+            children: this.props.tree
 
         }
     };
 
     componentDidUpdate(prevProps) {
-        if(this.props.match.params !== prevProps.match.params){
-            this.componentDidMount()
-        }
-
-        if(this.props.repo !== prevProps.repo){
-            const repoId = this.props.repo.id;
-            this.props.dispatch(getRepoTreeById(repoId));
-        }
-
         if (this.props.tree !== prevProps.tree) {
             this.setState({data: this.getData()});
         }
@@ -113,7 +101,7 @@ export class TreeViewerTest extends Component {
                     <ContentViewerContainer
                         style={styles.viewer.base}
                         node={this.state.cursor}
-                        repoId={this.props.repo.id}
+                        repoId={this.props.match.params.id}
                         defaultPath={defaultPath}
                     />
                 </div>
@@ -123,12 +111,10 @@ export class TreeViewerTest extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        tree: state.directories.tree,
-        repo: state.singleRepo,
-        decorators
-    }
-}
-
-export const RepoTreeViewerTest = connect(mapStateToProps)(TreeViewerTest);
+// function mapStateToProps(state) {
+//     return {
+//         tree: state.directories.tree
+//     }
+// }
+//
+// export const RepoTreeViewer = connect(mapStateToProps)(TreeViewer);

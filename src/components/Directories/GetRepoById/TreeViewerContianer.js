@@ -1,8 +1,8 @@
 import React from 'react'
-import {TreeViewer} from "./RepoTreeViewer";
+import {TreeViewerById} from "./RepoTreeViewerById";
 import {decorators} from "react-treebeard";
 import { connect } from "react-redux";
-import {getFileExtension} from "../../helpers/getFileExtension";
+import {getFileExtension} from "../../../helpers/getFileExtension";
 
 decorators.Header = ({style, node}) => {
     if(!node.name){
@@ -32,4 +32,4 @@ function mapStateToProps(state) {
     }
 }
 
-export const RepoTreeViewer = connect(mapStateToProps)(TreeViewer);
+export const RepoTreeViewerById = connect(mapStateToProps)(TreeViewerById);

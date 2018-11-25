@@ -1,0 +1,42 @@
+
+
+/*$base-color: #ced4da;*/
+/*$light-background: lighten(desaturate($base-color, 50%), 12.5%);*/
+
+/* Define Styles */
+
+.current-page {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.country-card-container {
+  height: 70px;
+  /*cursor: pointer;*/
+  position: relative;
+  overflow: hidden;
+}
+
+.country-name {
+  font-size: 1.9rem;
+}
+
+.country-region {
+  font-size: 1.1rem;
+}
+
+.current-page,
+.country-name,
+.country-region {
+  line-height: 1;
+}
+
+
+/* Override some Bootstrap pagination styles */
+
+ul.pagination {
+  margin-top: 0;
+  margin-bottom: 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+}

@@ -1,15 +1,12 @@
 import React, {Component} from "react";
-import {getRepoByOwnerAndRepoName, getReposWithLinks} from "../../actions/actions";
+import { getReposWithLinks} from "../../actions/actions";
 import {connect} from "react-redux"
-import {Redirect} from "react-router-dom";
 
-class SearchBoxTest extends Component {
+class UserSearchBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userInput: '',
             owner: '',
-            repo: '',
             redirect:false
 
         };
@@ -26,17 +23,14 @@ class SearchBoxTest extends Component {
 
     onSubmit(e){
         e.preventDefault();
-        const [owner, repo] = this.state.userInput.split('/');
-        this.setState({
-            owner,
-            repo,
-            redirect:true
-        })
+        const {dispatch} =this.props;
+        const {owner} = this.state;
+        dispatch(getReposWithLinks(owner));
+        this.setState({redirect:true})
 
     }
 
     render() {
-        const {redirect, owner, repo} = this.state;
         return (
             <div className="col-sm-3 col-md-3">
                 <form
@@ -49,8 +43,9 @@ class SearchBoxTest extends Component {
                             type="text"
                             className="form-control"
                             placeholder="Search"
-                            name="userInput"
-                            value={this.state.userInput}
+                            name="owner"
+                            style={{backgroundColor: '#404448'}}
+                            value={this.state.owner}
                             onChange={this.handleOnChange}
                         />
                         <div className="input-group-btn">
@@ -63,10 +58,9 @@ class SearchBoxTest extends Component {
                         </div>
                     </div>
                 </form>
-                {redirect && <Redirect to={`/${owner}/${repo}`}/>}
             </div>
         );
     }
 }
 
-export const SearchBox = connect()(SearchBoxTest);
+export const SearchBoxContainer = connect()(UserSearchBox);

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {getRepoByOwnerAndRepoName, getReposWithLinks, getRepoTreeByOwnerAndRepoName} from "../../actions/actions";
+import {getRepoByOwnerAndRepoName} from "../../actions/actions";
 import PaginationItems from "../../pagination/PaginationItems";
 import {Redirect} from "react-router-dom";
 
@@ -33,7 +33,7 @@ export class HomePage extends Component{
 
         const id = repo.id;
         if(id){
-            return <Redirect to={`/repository/${id}`}/>
+            return <Redirect to={`/${repo.owner}/${repo.name}`}/>
         }
         return (
             <div className="home">
@@ -45,10 +45,6 @@ export class HomePage extends Component{
                 <h5>{sessionStorage.getItem('username')}</h5>
                 <h5>{sessionStorage.getItem('authtoken')}</h5>
                 <PaginationItems data={repos ? repos : []}/>
-                {/*<ul>*/}
-                    {/*{repos ? repos.map(repo => <Repo key={repo.id} repo={repo}/>) : ""}*/}
-                {/*</ul>*/}
-                {/*<pre>{repos.toString()}</pre>*/}
             </div>
         );
     }

@@ -40,14 +40,14 @@ function getData(url, dataAction, init, contentType) {
     };
 }
 
-function getRepos(owner) {
-    const init = {
-        mode: "cors"
-    };
-
-    const url = `users/${owner}/repos`;
-    return getData(url, gotReposByOwner, init);
-}
+// function getRepos(owner) {
+//     const init = {
+//         mode: "cors"
+//     };
+//
+//     const url = `users/${owner}/repos`;
+//     return getData(url, gotReposByOwner, init);
+// }
 
 function getReposWithLinks(owner) {
     return dispatch => {

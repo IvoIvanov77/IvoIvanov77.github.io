@@ -1,4 +1,4 @@
-import React, {Component, PureComponent} from "react";
+import React, {Component} from "react";
 import {getFileContent} from "../../actions/actions";
 import Highlight from "react-highlight";
 import {getFileExtension} from "../../helpers/getFileExtension";
@@ -36,7 +36,6 @@ export class ContentViewer extends Component{
     }
 
     render(){
-        console.log('render')
         if (!this.props.node && !this.props.content) {
             return <div> {HELP_MSG}</div>;
         }

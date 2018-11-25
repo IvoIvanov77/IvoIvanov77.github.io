@@ -1,10 +1,10 @@
-import {MenuItem, Nav, Navbar, NavDropdown, NavItem} from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import React from "react";
 import {AuthLinks} from "./AuthLinks";
 import {logoutUser} from "../../actions/userActions";
 import {connect} from 'react-redux'
-import {SearchBoxContainer} from "../SearchBox/SearchBox";
-import {SearchBox} from "../SearchBox/SearchBoxTest";
+import {SearchBoxContainer} from "../SearchBoxes/UserSearchBox";
+import {SearchBox} from "../SearchBoxes/RepoSearchBoxTest";
 
 const Header = (props) => {
     return (
