@@ -8,7 +8,7 @@ import {SearchBox} from "../SearchBoxes/RepoSearchBoxTest";
 
 const Header = (props) => {
     return (
-        <Navbar inverse collapseOnSelect>
+        <Navbar inverse collapseOnSelect className='header'>
             <Navbar.Header>
                 <Navbar.Brand>
                     <a href="/">Repo Explorer</a>

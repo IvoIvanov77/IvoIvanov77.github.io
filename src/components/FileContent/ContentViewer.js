@@ -3,7 +3,7 @@ import {getFileContent} from "../../actions/actions";
 import Highlight from "react-highlight";
 import {getFileExtension} from "../../helpers/getFileExtension";
 import ReactMarkdown from "react-markdown";
-const HELP_MSG = 'Select A Node To See Its Data Structure Here...';
+const HELP_MSG = 'This repository has no Readme. Please select a file to see its content here...';
 
 export class ContentViewer extends Component{
 
@@ -42,7 +42,7 @@ export class ContentViewer extends Component{
 
         if(this.state.fileExtension === 'md'){
             return (
-                <div className='content-viewer'>
+                <div className='readme-viewer'>
                     <ReactMarkdown source={this.props.content} />
                 </div>
             )

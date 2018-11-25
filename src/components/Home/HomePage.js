@@ -10,7 +10,7 @@ export class HomePage extends Component{
             userInput: ''
         };
         this.handleOnChange = this.handleOnChange.bind(this);
-        this.handleButtonClick = this.handleButtonClick.bind(this);
+        this.onSubmit = this.handleButtonClick.bind(this);
     }
 
     handleOnChange(e){

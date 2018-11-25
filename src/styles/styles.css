@@ -32,6 +32,10 @@ li {
     min-height: 90%;
 }
 
+.readme-viewer{
+   padding: 0 50px;
+}
+
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;

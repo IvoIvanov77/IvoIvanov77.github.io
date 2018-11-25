@@ -4,9 +4,11 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "homepage": "https://IvoIvanov77.github.io/react_explorer",
   "dependencies": {
     "@types/react-redux": "6.0.9",
     "email-validator": "^2.0.4",
+    "gh-pages": "^2.0.1",
     "password-validator": "^4.1.1",
     "prop-types": "latest",
     "react": "16.5.2",
@@ -26,6 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "browserslist": [

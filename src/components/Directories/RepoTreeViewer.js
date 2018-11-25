@@ -84,7 +84,7 @@ export class TreeViewer extends Component {
         const data = this.state.data;
         const {tree} = this.props;
         if (!tree) {
-            return ''
+            return <h2>Not found</h2>
         }
         const defaultDirectory = tree.find(d => d.path.toUpperCase() === README);
         const defaultPath = defaultDirectory ? defaultDirectory.path : undefined;

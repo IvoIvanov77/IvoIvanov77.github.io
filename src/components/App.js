@@ -1,13 +1,14 @@
 import React, {Component} from "react";
 import {PreloaderContainer} from "./Preloader/PreloaderContainer";
 import {Route, Switch} from "react-router-dom";
-import {HomePageContainer} from "./Repos/HomePageContainer";
+import {HomePageContainer} from "./Home/HomePageContainer";
 import {RepoTreeViewerById} from "./Directories/GetRepoById/TreeViewerContianer";
 import {RegistrationFormContainer} from "./Forms/RegistrationForm";
 import {LoginFormContainer} from "./Forms/LoginForm";
 import {HeaderContainer} from "./Comon/Header";
 import {RepoTreeViewer} from "./Directories/RepoTreeViewer";
 import {AdvancedSearchContainer} from "./Forms/AdvancedSearchForm";
+import {HomePageTest} from "./Home/HomePageTest";
 
 export class App extends Component{
     constructor(props){
@@ -31,7 +32,7 @@ export class App extends Component{
                 <HeaderContainer/>
                 <PreloaderContainer/>
                 <Switch>
-                    <Route exact path="/" component={HomePageContainer} />
+
                     <Route exact path="/repository/:id" component={RepoTreeViewerById} />
                     <Route exact path="/:owner/:repoName" component={RepoTreeViewer} />
                     <Route path="/register" component={RegistrationFormContainer} />
