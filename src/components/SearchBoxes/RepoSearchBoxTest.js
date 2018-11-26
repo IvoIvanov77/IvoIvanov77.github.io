@@ -47,7 +47,7 @@ class RepoSearchBoxTest extends Component {
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="Search"
+                            placeholder="owner/repo"
                             name="userInput"
                             value={this.state.userInput}
                             onChange={this.handleOnChange}
@@ -62,7 +62,7 @@ class RepoSearchBoxTest extends Component {
                         </div>
                     </div>
                 </form>
-                {redirect && <Redirect to={`/${owner}/${repo}`}/>}
+                {redirect && <Redirect to={`/repo/${owner}/${repo}`}/>}
             </div>
         );
     }

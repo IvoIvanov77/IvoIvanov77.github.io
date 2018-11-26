@@ -7,6 +7,7 @@ const RepoCard = props => {
 
       <tr>
           <td>{props.repo.name}</td>
+          <td>{props.repo.owner.login}</td>
           <td>{props.repo.description}</td>
           <td>{props.repo.stargazers_count}</td>
           <td>{props.repo.created_at}</td>
@@ -22,7 +23,7 @@ const RepoCard = props => {
 
           </td>
           <td>
-              <Link to={`/${props.repo.owner.login}/${props.repo.name}`}> explore</Link>
+              <Link to={`/repo/${props.repo.owner.login}/${props.repo.name}`}> explore</Link>
           </td>
       </tr>
   )

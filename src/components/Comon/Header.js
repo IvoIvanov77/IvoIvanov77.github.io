@@ -12,12 +12,15 @@ const Header = (props) => {
         <Navbar inverse collapseOnSelect className='header'>
             <Navbar.Header>
                 <Navbar.Brand>
-                    <Link to='/'>Repo Explorer</Link>
+                    <Link to='/'>repo explorer</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>
             <SearchBoxContainer/>
             <SearchBox/>
+            <Navbar.Brand >
+                <Link to='/search' style={{fontSize: '1em'}}>advanced search</Link>
+            </Navbar.Brand>
             <Navbar.Collapse>
                 {/*<Nav>*/}
                     {/*<NavItem eventKey={1} href="#">*/}
@@ -38,6 +41,7 @@ const Header = (props) => {
                     loggedInUser={props.loggedInUser }
                     logout={() => props.dispatch(logoutUser())}
                 />
+
             </Navbar.Collapse>
         </Navbar>
     )

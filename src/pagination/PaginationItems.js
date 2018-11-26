@@ -8,45 +8,45 @@ class PaginationItems extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allCountries: [],
-            currentCountries: [],
+            allItems: [],
+            currentItems: [],
             currentPage: null,
             pageLimit: 10
         }
     }
 
     componentDidMount(){
-        this.setState({allCountries: this.props.data})
+        this.setState({allItems: this.props.data})
     }
 
 
     componentDidUpdate(prevProps) {
         if (this.props.data !== prevProps.data) {
-            const allCountries = this.props.data;
+            const allItems = this.props.data;
             const {currentPage,  pageLimit} = this.state;
             const offset = (currentPage - 1) * pageLimit;
-            const currentCountries = allCountries.slice(offset, offset + pageLimit);
-            this.setState({allCountries, currentPage, currentCountries});
+            const currentItems = allItems.slice(offset, offset + pageLimit);
+            this.setState({allItems, currentPage, currentItems});
 
         }
     }
 
     onPageChanged = data => {
-        const {allCountries} = this.state;
+        const {allItems} = this.state;
         const {currentPage,  pageLimit} = data;
 
         const offset = (currentPage - 1) * pageLimit;
-        const currentCountries = allCountries.slice(offset, offset + pageLimit);
+        const currentItems = allItems.slice(offset, offset + pageLimit);
 
-        this.setState({currentPage, currentCountries});
+        this.setState({currentPage,  currentItems});
     };
 
     render() {
-        const {allCountries, currentCountries, currentPage, pageLimit} = this.state;
-        const totalCountries = allCountries.length;
-        const totalPages = Math.ceil(totalCountries / pageLimit);
+        const {allItems, currentItems, currentPage, pageLimit} = this.state;
+        const totalItems = allItems.length;
+        const totalPages = Math.ceil(totalItems / pageLimit);
 
-        if (totalCountries === 0) return <div>{'No repos'}</div>;
+        if (totalItems === 0) return <div>{'No repos'}</div>;
 
         const headerClass = ['text-dark py-2 pr-4 m-0', currentPage ? 'border-gray border-right' : ''].join(' ').trim();
 
@@ -58,9 +58,9 @@ class PaginationItems extends Component {
                         className="w-100 px-4 py-5 d-flex flex-row flex-wrap align-items-center justify-content-between">
                         <div className="d-flex flex-row align-items-center">
 
-                            <h2 className={headerClass}>
-                                <strong className="text-secondary">{totalCountries}</strong> Countries
-                            </h2>
+                            <h4 className={headerClass}>
+                                <strong className="text-secondary">{totalItems}</strong> Results
+                            </h4>
 
                             {currentPage && (
                                 <span className="current-page d-inline-block h-100 pl-4 text-secondary">
@@ -72,7 +72,7 @@ class PaginationItems extends Component {
                         </div>
 
                         <div className="d-flex flex-row py-4 align-items-center">
-                            <Pagination totalRecords={totalCountries} pageLimit={pageLimit} pageNeighbours={1}
+                            <Pagination totalRecords={totalItems} pageLimit={pageLimit} pageNeighbours={1}
                                         onPageChanged={this.onPageChanged}/>
                         </div>
                     </div>
@@ -83,6 +83,7 @@ class PaginationItems extends Component {
                                 <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Owner</th>
                                     <th>Description</th>
                                     <th>Stars</th>
                                     <th>Creation time</th>
@@ -92,7 +93,7 @@ class PaginationItems extends Component {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {currentCountries.map(repo => <RepoCard key={repo.id} repo={repo}/>)}
+                                {currentItems.map(repo => <RepoCard key={repo.id} repo={repo}/>)}
                                 </tbody>
 
                             </table>

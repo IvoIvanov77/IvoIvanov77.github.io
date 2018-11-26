@@ -42,7 +42,7 @@ class UserSearchBox extends Component {
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="Search"
+                            placeholder="github user"
                             name="owner"
                             style={{backgroundColor: '#404448'}}
                             value={this.state.owner}

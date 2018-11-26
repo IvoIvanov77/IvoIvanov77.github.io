@@ -5,17 +5,16 @@ import {store} from "./helpers/store";
 import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import {App} from "./components/App";
 import './styles/styles.css'
-import {HomePageTest} from "./components/Home/HomePageTest";
+import {HomePageContainer} from "./components/Home/HomePage";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <Provider store={store}>
       <Router basename={process.env.PUBLIC_URL}>
           <Switch>
-              <Route exact path="/" component={HomePageTest} />
+              <Route exact path="/" component={HomePageContainer} />
               <App/>
           </Switch>
-
       </Router>
   </Provider>,
   rootElement

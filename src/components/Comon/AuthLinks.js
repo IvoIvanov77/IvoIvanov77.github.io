@@ -7,10 +7,10 @@ export const AuthLinks = (props) => {
         return (
             <Nav pullRight>
                 <Navbar.Brand >
-                    <Link to='/login' style={{fontSize: '1em'}}>Sign In</Link>
+                    <Link to='/login' style={{fontSize: '1em'}}>sign in</Link>
                 </Navbar.Brand>
                 <Navbar.Brand >
-                    <Link to='/register' style={{fontSize: '1em'}}>Sign Up</Link>
+                    <Link to='/register' style={{fontSize: '1em'}}>sign up</Link>
                 </Navbar.Brand>
             </Nav>
         )
@@ -18,7 +18,7 @@ export const AuthLinks = (props) => {
         return (
             <Nav pullRight>
                 <NavItem onClick={props.logout}>
-                    Sign Out
+                    sign out
                 </NavItem>
             </Nav>
         )

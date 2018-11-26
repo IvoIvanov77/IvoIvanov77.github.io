@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {searchRepos} from "../../actions/actions";
 import {Redirect} from "react-router-dom";
 
-class AdvancedSearchForm extends Component {
+export class AdvancedSearchForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,9 @@ class AdvancedSearchForm extends Component {
                 user: '',
                 minStars: '',
                 maxStars: ''
-            }
+            },
+            redirect: false,
+            queryString: ''
 
         };
 
@@ -36,14 +38,13 @@ class AdvancedSearchForm extends Component {
                 return {prevState}
             });
         }
-
     }
 
     onSubmit(e) {
         e.preventDefault();
-        const {dispatch} = this.props;
+        // const {dispatch} = this.props;
         const queryString = this.createQueryString();
-        dispatch(searchRepos(queryString));
+        this.setState({queryString, redirect:true});
     }
 
     createQueryString() {
@@ -81,9 +82,10 @@ class AdvancedSearchForm extends Component {
 
 
     render() {
-        if (this.props.result.total_count > 0) {
+        const {queryString, redirect} = this.state;
+        if (redirect) {
             return (
-                <Redirect to='/'/>
+                <Redirect exact to={`/repos/${queryString}`}/>
             )
         }
         return (
@@ -183,10 +185,10 @@ class AdvancedSearchForm extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        result: state.foundRepos
-    }
-}
-
-export const AdvancedSearchContainer = connect(mapStateToProps)(AdvancedSearchForm);
+// function mapStateToProps(state) {
+//     return {
+//         result: state.foundRepos
+//     }
+// }
+//
+// export const AdvancedSearchContainer = connect(mapStateToProps)(AdvancedSearchForm);
