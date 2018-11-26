@@ -5,13 +5,14 @@ import {logoutUser} from "../../actions/userActions";
 import {connect} from 'react-redux'
 import {SearchBoxContainer} from "../SearchBoxes/UserSearchBox";
 import {SearchBox} from "../SearchBoxes/RepoSearchBoxTest";
+import {Link} from "react-router-dom";
 
 const Header = (props) => {
     return (
         <Navbar inverse collapseOnSelect className='header'>
             <Navbar.Header>
                 <Navbar.Brand>
-                    <a href="/">Repo Explorer</a>
+                    <Link to=''>Repo Explorer</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>

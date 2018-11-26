@@ -32,11 +32,10 @@ export class App extends Component{
                 <HeaderContainer/>
                 <PreloaderContainer/>
                 <Switch>
-
                     <Route exact path="/repository/:id" component={RepoTreeViewerById} />
+                    <Route exact path="/register" component={RegistrationFormContainer} />
+                    <Route exact path="/login" component={LoginFormContainer} />
                     <Route exact path="/:owner/:repoName" component={RepoTreeViewer} />
-                    <Route path="/register" component={RegistrationFormContainer} />
-                    <Route path="/login" component={LoginFormContainer} />
                     <Route path="/search" component={AdvancedSearchContainer} />
                 </Switch>
             </div>

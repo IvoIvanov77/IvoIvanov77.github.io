@@ -65,7 +65,7 @@ class RegistrationForm extends Component {
     render() {
         if(sessionStorage.getItem('authtoken') || this.props.loggedInUser){
             return(
-                <Redirect to='/'/>
+                <Redirect to=''/>
             )
         }
 
@@ -110,7 +110,7 @@ class RegistrationForm extends Component {
                     />
                     <Button type="submit">Submit</Button>
                 </form>
-                <Link to='/login'>Login</Link>
+                <Link to='#/login'>Login</Link>
             </div>
 
         );

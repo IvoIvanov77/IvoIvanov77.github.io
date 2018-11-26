@@ -4,7 +4,7 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
-  "homepage": "https://IvoIvanov77.github.io/react_explorer/",
+  "homepage": "https://IvoIvanov77.github.io/repo_explorer/",
   "dependencies": {
     "@types/react-redux": "6.0.9",
     "email-validator": "^2.0.4",

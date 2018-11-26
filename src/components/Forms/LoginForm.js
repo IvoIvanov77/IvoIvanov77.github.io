@@ -45,7 +45,7 @@ class LoginForm extends React.Component{
     render() {
         if(sessionStorage.getItem('authtoken') || this.props.loggedInUser){
             return(
-                <Redirect to='/'/>
+                <Redirect to=''/>
             )
         }
         return (

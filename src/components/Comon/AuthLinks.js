@@ -1,16 +1,17 @@
-import {Nav, NavItem} from "react-bootstrap";
+import {Nav, NavItem, Navbar} from "react-bootstrap";
 import React from "react";
+import {Link} from "react-router-dom";
 
 export const AuthLinks = (props) => {
     if(!props.loggedInUser){
         return (
             <Nav pullRight>
-                <NavItem  href="/login">
-                    Sign In
-                </NavItem>
-                <NavItem href="/register">
-                    Sign Up
-                </NavItem>
+                <Navbar.Brand >
+                    <Link to='/login' style={{fontSize: '1em'}}>Sign In</Link>
+                </Navbar.Brand>
+                <Navbar.Brand >
+                    <Link to='/register' style={{fontSize: '1em'}}>Sign Up</Link>
+                </Navbar.Brand>
             </Nav>
         )
     }else {

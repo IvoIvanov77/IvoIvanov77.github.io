@@ -10,7 +10,7 @@ import {HomePageTest} from "./components/Home/HomePageTest";
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <Provider store={store}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
           <Switch>
               <Route exact path="/" component={HomePageTest} />
               <App/>
