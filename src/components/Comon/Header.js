@@ -12,7 +12,7 @@ const Header = (props) => {
         <Navbar inverse collapseOnSelect className='header'>
             <Navbar.Header>
                 <Navbar.Brand>
-                    <Link to=''>Repo Explorer</Link>
+                    <Link to='/'>Repo Explorer</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>

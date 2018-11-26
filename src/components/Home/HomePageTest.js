@@ -12,11 +12,18 @@ export class HomePageTest extends Component{
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.fillForm = this.fillForm.bind(this);
     }
 
     onChange(e){
         this.setState({
             [e.target.name]: e.target.value
+        })
+    }
+
+    fillForm(){
+        this.setState({
+            userInput: 'IvoIvanov77/repo_explorer',
         })
     }
 
@@ -45,13 +52,21 @@ export class HomePageTest extends Component{
                         name='userInput'
                         value={this.state.userInput}
                         onChange={this.onChange}
-                        placeholder="type keyword(s) here"/>
+                        placeholder="jump to owner/repo"/>
                     <button
                         type="submit"
                         className="btn btn-primary">
-                        Search
+                        Explore
+                    </button>
+                    <button
+                        onClick={this.fillForm}
+                        className="btn btn-secondary"
+                        type="button"
+                    >
+                        example
                     </button>
                 </form>
+
             </div>
         );
     }
