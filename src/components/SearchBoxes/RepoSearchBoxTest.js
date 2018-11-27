@@ -29,7 +29,8 @@ class RepoSearchBoxTest extends Component {
         this.setState({
             owner,
             repo,
-            redirect:true
+            redirect:true,
+            userInput: ''
         })
 
     }

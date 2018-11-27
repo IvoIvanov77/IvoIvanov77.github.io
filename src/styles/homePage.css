@@ -22,6 +22,7 @@
     padding-right: 30px;
     outline: none;
 }
+
 #search .btn-primary {
     position: absolute;
     width: 30%;
@@ -38,3 +39,18 @@
     margin-top: 61px;
 
 }
+
+@media all and (max-width: 980px) {
+    #search input[type="search"] {
+        font-size: 75px;
+
+    }
+}
+
+@media all and (max-width: 720px) {
+    #search input[type="search"] {
+        font-size: 35px;
+
+    }
+}
+

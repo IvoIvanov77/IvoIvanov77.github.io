@@ -1,13 +1,13 @@
 import React, {Component} from "react";
-import { getReposWithLinks} from "../../actions/actions";
-import {connect} from "react-redux"
+import {Redirect} from "react-router-dom";
 
-class UserSearchBox extends Component {
+export class UserSearchBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            userInput: '',
             owner: '',
-            redirect:false
+            redirect: false
 
         };
         this.handleOnChange = this.handleOnChange.bind(this);
@@ -23,14 +23,13 @@ class UserSearchBox extends Component {
 
     onSubmit(e){
         e.preventDefault();
-        const {dispatch} =this.props;
-        const {owner} = this.state;
-        dispatch(getReposWithLinks(owner));
-        this.setState({redirect:true})
+        const {userInput} = this.state;
+        this.setState({owner: userInput, redirect:true, userInput:''})
 
     }
 
     render() {
+        const{owner, redirect} = this.state;
         return (
             <div className="col-sm-3 col-md-3">
                 <form
@@ -43,9 +42,9 @@ class UserSearchBox extends Component {
                             type="text"
                             className="form-control"
                             placeholder="github user"
-                            name="owner"
+                            name="userInput"
                             style={{backgroundColor: '#404448'}}
-                            value={this.state.owner}
+                            value={this.state.userInput}
                             onChange={this.handleOnChange}
                         />
                         <div className="input-group-btn">
@@ -58,9 +57,9 @@ class UserSearchBox extends Component {
                         </div>
                     </div>
                 </form>
+                {redirect && <Redirect to={`/${owner}/repos`}/>}
             </div>
         );
     }
 }
 
-export const SearchBoxContainer = connect()(UserSearchBox);

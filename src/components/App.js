@@ -37,6 +37,7 @@ export class App extends Component{
                     <Route exact path="/login" component={LoginFormContainer} />
                     <Route exact path="/repo/:owner/:repoName" component={RepoTreeViewer} />
                     <Route exact path="/repos/:queryString" component={QuerySearchResult} />
+                    <Route exact path="/:user/repos" component={QuerySearchResult} />
                     <Route path="/search" component={AdvancedSearchForm} />
                 </Switch>
             </div>

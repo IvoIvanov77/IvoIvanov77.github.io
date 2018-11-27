@@ -10,7 +10,7 @@ const RepoCard = props => {
           <td>{props.repo.owner.login}</td>
           <td>{props.repo.description}</td>
           <td>{props.repo.stargazers_count}</td>
-          <td>{props.repo.created_at}</td>
+          <td>{new Date(props.repo.created_at).toDateString()}</td>
           <td>{props.repo.language}</td>
           {/*download https://api.github.com/repos/hadley/devtools/zipball/master*/}
 

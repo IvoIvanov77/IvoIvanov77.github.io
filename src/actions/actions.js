@@ -14,7 +14,7 @@ function handleError(errorMessage) {return {type: 'FAIL_AJAX_CALL', errorMessage
 
 export {
     getRepoByOwnerAndRepoName, getRepoTreeById, getFileContent,
-    getReposWithLinks, getRepoTreeByOwnerAndRepoName, searchRepos
+    getUserRepos, getRepoTreeByOwnerAndRepoName, searchRepos
 }
 
 const fetcher = new Fetcher(GITHUB_API_URL);
@@ -49,7 +49,7 @@ function getData(url, dataAction, init, contentType) {
 //     return getData(url, gotReposByOwner, init);
 // }
 
-function getReposWithLinks(owner) {
+function getUserRepos(owner) {
     return dispatch => {
         dispatch(startAjaxCall());
         getAllRepos(owner).then(data => {

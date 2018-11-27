@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import PaginationItems from "../../pagination/PaginationItems";
-import {searchRepos} from "../../actions/actions";
+import {getUserRepos, searchRepos} from "../../actions/actions";
 
 class QuerySearch extends Component{
     constructor(props){
@@ -10,14 +10,21 @@ class QuerySearch extends Component{
 
     componentDidMount(){
         const queryString = this.props.match.params.queryString;
-        this.props.dispatch(searchRepos(queryString))
+        const user = this.props.match.params.user;
+        console.log(user)
+        if(queryString){
+            this.props.dispatch(searchRepos(queryString))
+        }else if(user){
+            this.props.dispatch(getUserRepos(user))
+        }
+
     }
 
-    // componentDidUpdate(prevProps){
-    //     if(this.props.repos !== prevProps.repos){
-    //
-    //     }
-    // }
+    componentDidUpdate(prevProps){
+        if(this.props.match.params !== prevProps.match.params){
+            this.componentDidMount()
+        }
+    }
 
     render() {
         console.log(this.props)
@@ -25,7 +32,7 @@ class QuerySearch extends Component{
         return (
             <div className="home">
                 <h1>Search</h1>
-                <PaginationItems data={repos.items ? repos.items : []}/>
+                <PaginationItems data={repos ? repos : []}/>
             </div>
         );
 
@@ -34,7 +41,7 @@ class QuerySearch extends Component{
 
 function mapStateToProps(state) {
     return {
-        repos: state.foundRepos,
+        repos: state.foundRepos.items ? state.foundRepos.items : state.userRepos,
     }
 }
 
