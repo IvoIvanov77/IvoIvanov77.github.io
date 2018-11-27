@@ -1,11 +1,11 @@
 import Fetcher from '../helpers/fetcher'
+import {sensitiveData} from "../helpers/sensitiveData";
 
-const kinveyBaseUrl = "https://baas.kinvey.com";
-const kinveyAppKey = "kid_Bk3haU7TQ";
-const kinveyAppSecret = "3eacdc7655d84ba3a550b115ec7e5d7e";
+const baseUrl = sensitiveData.kinveyBaseUrl;
+const appKey = sensitiveData.kinveyAppKey;
+const appSecret = sensitiveData.kinveyAppSecret;
 
-const userFetcher = new Fetcher(kinveyBaseUrl);
-
+const userFetcher = new Fetcher(baseUrl);
 
 function saveSession(userInfo) {
     let userAuth = userInfo._kmd.authtoken;
@@ -25,7 +25,7 @@ function clearSession() {
 const basicAuthInit = {
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa(kinveyAppKey + ':' + kinveyAppSecret)
+        'Authorization': 'Basic ' + btoa(appKey + ':' + appSecret)
     }
 };
 
@@ -44,7 +44,7 @@ function login(email, password) {
         username: email,
         password
     };
-    return userFetcher.post(`user/${kinveyAppKey}/login`, basicAuthInit, userData)
+    return userFetcher.post(`user/${appKey}/login`, basicAuthInit, userData)
 }
 
 function register(email, password) {
@@ -53,12 +53,12 @@ function register(email, password) {
         password,
     };
 
-    return userFetcher.post(`user/${kinveyAppKey}`, basicAuthInit, userData);
+    return userFetcher.post(`user/${appKey}`, basicAuthInit, userData);
 }
 
 
 function logout() {
-    return userFetcher.post(`user/${kinveyAppKey}/_logout`, kinveyAuthInit());
+    return userFetcher.post(`user/${appKey}/_logout`, kinveyAuthInit());
 }
 
 export const userService = {
