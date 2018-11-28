@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
-import {searchRepos} from "../../actions/actions";
 import {Redirect} from "react-router-dom";
 
 export class AdvancedSearchForm extends Component {
@@ -77,7 +75,6 @@ export class AdvancedSearchForm extends Component {
         console.log(queryString);
 
         return queryString
-
     }
 
 
@@ -91,7 +88,7 @@ export class AdvancedSearchForm extends Component {
         return (
             <form className="form-horizontal" onSubmit={this.onSubmit}>
                 <fieldset>
-                    <legend>Form Name</legend>
+                    <legend>Advanced search</legend>
                     <div className="form-group">
                         <label className="col-md-4 control-label" htmlFor="key_word">Key Word</label>
                         <div className="col-md-4">
@@ -100,7 +97,7 @@ export class AdvancedSearchForm extends Component {
                                 name="keyWord"
                                 type="text"
                                 value={this.state.keyWord}
-                                placeholder="Search for keyword in name, description or readme"
+                                placeholder="Search for keyword in name or description"
                                 className="form-control input-md"
                                 onChange={this.onChange}
                             />

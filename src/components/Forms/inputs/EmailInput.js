@@ -10,7 +10,7 @@ const EmailInput = (props) => {
             type='email'
             name='email'
             value={props.value}
-            placeholder = 'example@email.com'
+            placeholder = 'fake@email.com'
             handleChange={props.handleChange}
         />
     )

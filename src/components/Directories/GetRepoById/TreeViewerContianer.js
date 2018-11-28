@@ -18,7 +18,7 @@ decorators.Header = ({style, node}) => {
         <div style={style.base}>
             <div style={style.title}>
                 <i className={iconClass} style={iconStyle}/>
-                {node.name}
+                <span>{node.name}</span>
             </div>
         </div>
     );

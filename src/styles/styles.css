@@ -36,6 +36,10 @@ li {
    padding: 0 50px;
 }
 
+.css-79elbk {
+    overflow: auto;
+}
+
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -77,6 +81,15 @@ pre {
 
     .content-viewer-container{
         width: 100%;
+    }
+
+    .form-horizontal .form-group {
+         margin-right: 0;
+         margin-left: 0;
+    }
+
+    .form-container {
+         width: 90%;
 
     }
 }

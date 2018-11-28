@@ -52,6 +52,7 @@ export default {
                     verticalAlign: 'top',
                     color: '#9DA5AB',
                     fontSize: '14px',
+                    whiteSpace: 'nowrap'
                 },
                 connector: {
                     width: '2px',
