@@ -1,9 +1,10 @@
 import '../../styles/homePage.css'
 import React, {Component} from "react";
-import {Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {logoutUser} from "../../actions/userActions";
 import {AuthLinks} from "../Comon/AuthLinks";
 import { connect } from "react-redux";
+import { Navbar } from "react-bootstrap";
 
 class HomePage extends Component{
     constructor(props){
@@ -33,7 +34,6 @@ class HomePage extends Component{
     onSubmit(e){
         e.preventDefault();
         let params = this.state.userInput.split('/');
-        let owner = params[0];
         let repoName = params[1];
         if(repoName){
             this.setState({jump:true})
@@ -48,10 +48,26 @@ class HomePage extends Component{
         }
         return (
             <div id="search">
-                <AuthLinks
-                    loggedInUser={this.props.loggedInUser }
-                    logout={() => this.props.dispatch(logoutUser())}
-                />
+                <Navbar inverse collapseOnSelect className>
+                <div className='home-page-navigation'>
+                    <Navbar.Header>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <AuthLinks
+                            loggedInUser={this.props.loggedInUser }
+                            logout={() => this.props.dispatch(logoutUser())}
+                        />
+                        <Navbar.Brand >
+                            <Link to='/search' >advanced search</Link>
+                        </Navbar.Brand>
+                    </Navbar.Collapse>
+
+
+
+                </div>
+                </Navbar>
+
                 <form onSubmit={this.onSubmit}>
                     <input
                         type="search"

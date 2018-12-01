@@ -72,8 +72,6 @@ export class AdvancedSearchForm extends Component {
                 }
             }
         );
-        console.log(queryString);
-
         return queryString
     }
 

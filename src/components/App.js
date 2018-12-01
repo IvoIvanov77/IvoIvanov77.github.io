@@ -7,7 +7,6 @@ import {LoginFormContainer} from "./Forms/LoginForm";
 import {HeaderContainer} from "./Comon/Header";
 import {RepoTreeViewer} from "./Directories/RepoTreeViewer";
 import {AdvancedSearchForm} from "./Forms/AdvancedSearchForm";
-import {HomePage} from "./Home/HomePage";
 import {QuerySearchResult} from "./SearchResults/QuerySearch";
 
 export class App extends Component{

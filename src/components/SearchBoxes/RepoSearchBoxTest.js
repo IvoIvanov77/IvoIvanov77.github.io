@@ -19,7 +19,8 @@ class RepoSearchBoxTest extends Component {
     handleOnChange(e) {
         e.preventDefault();
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            redirect:false
         })
     }
 
@@ -47,7 +48,7 @@ class RepoSearchBoxTest extends Component {
                     <div className="input-group">
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control search-box"
                             placeholder="owner/repo"
                             name="userInput"
                             value={this.state.userInput}

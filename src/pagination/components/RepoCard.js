@@ -6,7 +6,7 @@ const RepoCard = props => {
   return (
 
       <tr>
-          <td>{props.repo.name}</td>
+          <th className="headcol">{props.repo.name}</th>
           <td>{props.repo.owner.login}</td>
           <td>{props.repo.description}</td>
           <td>{props.repo.stargazers_count}</td>

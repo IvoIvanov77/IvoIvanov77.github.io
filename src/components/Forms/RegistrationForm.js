@@ -74,7 +74,7 @@ class RegistrationForm extends Component {
                 <h3 className='error'>{this.state.errorMessage}</h3>
                 <h3 className='success'>{this.state.successMessage}</h3>
                 <form  onSubmit={this.createUser}>
-                    <h1 style={{textAlign:'center'}}>Registration Form</h1>
+                    <h2 style={{textAlign:'center'}}>Registration Form</h2>
                     <strong style={{color:"red", fontSize:'10px'}}>
                         !!! This is test app. Please, don't share any sensitive information !!!
                     </strong>

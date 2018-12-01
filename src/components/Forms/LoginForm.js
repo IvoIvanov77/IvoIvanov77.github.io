@@ -52,11 +52,12 @@ class LoginForm extends React.Component{
             <div className='form-container'>
                 <form  onSubmit={this.loginUser}>
                     <div className="error">{this.state.error}</div>
-                    <h1 style={{textAlign:'center'}}>Login Form</h1>
+                    <h2 style={{textAlign:'center'}}>Login Form</h2>
                     <EmailInput
                         validateEmail={InputValidator.validateEmail(this.state.user.email)}
                         value={this.state.user.email}
                         handleChange={this.handleUserChange}
+                        clasName='col-md-4'
                     />
                     <PasswordInput
                         validatePassword={InputValidator.validatePassword(this.state.user.password)}

@@ -17,7 +17,8 @@ export class UserSearchBox extends Component {
     handleOnChange(e) {
         e.preventDefault();
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            redirect: false
         })
     }
 
@@ -40,7 +41,7 @@ export class UserSearchBox extends Component {
                     <div className="input-group">
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control search-box"
                             placeholder="github user"
                             name="userInput"
                             style={{backgroundColor: '#404448'}}

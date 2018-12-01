@@ -21,13 +21,12 @@ const Header = (props) => {
                 <UserSearchBox/>
                 <SearchBox/>
                 <Navbar.Brand >
-                    <Link to='/search' style={{fontSize: '1em'}}>advanced search</Link>
+                    <Link to='/search'>advanced search</Link>
                 </Navbar.Brand>
                 <AuthLinks
                     loggedInUser={props.loggedInUser }
                     logout={() => props.dispatch(logoutUser())}
                 />
-
             </Navbar.Collapse>
         </Navbar>
     )

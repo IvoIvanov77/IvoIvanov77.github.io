@@ -51,16 +51,16 @@ class PaginationItems extends Component {
         const headerClass = ['text-dark py-2 pr-4 m-0', currentPage ? 'border-gray border-right' : ''].join(' ').trim();
 
         return (
-            <div className="container mb-5">
+            <div className="pagination-container">
                 <div className="row d-flex flex-row py-5">
 
                     <div
                         className="w-100 px-4 py-5 d-flex flex-row flex-wrap align-items-center justify-content-between">
                         <div className="d-flex flex-row align-items-center">
 
-                            <h4 className={headerClass}>
+                            <h2 className={headerClass}>
                                 <strong className="text-secondary">{totalItems}</strong> Results
-                            </h4>
+                            </h2>
 
                             {currentPage && (
                                 <span className="current-page d-inline-block h-100 pl-4 text-secondary">
@@ -79,10 +79,10 @@ class PaginationItems extends Component {
                     <div className="col-md-12">
 
                         <div className="table-responsive">
-                            <table id="mytable" className="table table-bordered table-striped">
+                            <table id="mytable" className="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th className="headcol">Name</th>
                                     <th>Owner</th>
                                     <th>Description</th>
                                     <th>Stars</th>

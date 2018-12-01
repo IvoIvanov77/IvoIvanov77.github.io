@@ -7,10 +7,10 @@ export const AuthLinks = (props) => {
         return (
             <Nav pullRight>
                 <Navbar.Brand >
-                    <Link to='/login' style={{fontSize: '1em'}}>sign in</Link>
+                    <Link to='/login' >sign in</Link>
                 </Navbar.Brand>
                 <Navbar.Brand >
-                    <Link to='/register' style={{fontSize: '1em'}}>sign up</Link>
+                    <Link to='/register'>sign up</Link>
                 </Navbar.Brand>
             </Nav>
         )
