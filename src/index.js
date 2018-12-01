@@ -5,6 +5,7 @@ import {store} from "./helpers/store";
 import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import {App} from "./components/App";
 import './styles/styles.css'
+// import './styles/reset.css'
 import {HomePageContainer} from "./components/Home/HomePage";
 
 const rootElement = document.getElementById("root");

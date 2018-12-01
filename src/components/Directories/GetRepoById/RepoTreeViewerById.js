@@ -8,7 +8,7 @@ import treeStyles from '../../../styles/not-default';
 import * as filters from "../../../helpers/filter";
 
 const README = 'README.MD';
-
+///repository/158962472
 
 export class TreeViewerById extends Component {
     constructor(props) {
@@ -40,7 +40,9 @@ export class TreeViewerById extends Component {
         if (this.props.tree !== prevProps.tree) {
             this.setState({data: this.getData()});
         }
+
     }
+
 
     async onFilterMouseUp(e) {
         console.log('loading...')
@@ -72,7 +74,7 @@ export class TreeViewerById extends Component {
         const data = this.state.data;
         const {tree} = this.props;
         if (!tree) {
-            return ''
+            return null
         }
         const defaultDirectory = tree.find(d => d.path.toUpperCase() === README);
         const defaultPath = defaultDirectory ? defaultDirectory.path : undefined;

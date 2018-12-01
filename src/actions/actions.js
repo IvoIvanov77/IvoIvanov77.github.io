@@ -29,8 +29,7 @@ function getData(url, dataAction, init, contentType) {
                         dispatch(handleError(data.message))
                     }else{
                         dispatch(dataAction(data));
-                        dispatch(successAjaxCall())
-
+                        dispatch(successAjaxCall());
                     }
                 },
                 error => {
