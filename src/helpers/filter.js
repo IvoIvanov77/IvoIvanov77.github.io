@@ -11,7 +11,7 @@ export const findNode = (node, filter, matcher) => {
 };
 
 export const filterTree = (node, filter, matcher = defaultMatcher) => {
-    // If im an exact match then all my children get to stay
+    // If im an exact match then all my children getData to stay
     if(matcher(filter, node) || !node.children){ return node; }
     // If not then only keep the ones that match or have matching descendants
     const filtered = node.children

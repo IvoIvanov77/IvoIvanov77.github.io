@@ -1,0 +1,143 @@
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    background-color: #232323;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.repo-icons {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    margin: 10px 0 30px 0;
+}
+
+.repo-info {
+    flex-grow: 1;
+}
+
+.repo-owner {
+    display: flex;
+    margin-top: 10%;
+}
+
+.owner-name{
+    margin: 5%;
+}
+.card {
+    margin: 1%;
+    width: 30%;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 3%;
+    box-shadow: 3px 3px #bcc2c4;
+    background-color: #3C3F41;
+    color: #F1F1F1;
+}
+
+.card-description{
+    font-style: oblique;
+    font-size: 16px;
+    color: #F1F1F1;
+}
+
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.card-buttons .btn-primary{
+    width: 77%;
+    margin-right: 5px;
+}
+
+.card-buttons .btn-secondary{
+    padding: 0;
+    width: 18%;
+    background: gainsboro;
+}
+
+.card-buttons .fab{
+    font-size: 28px;
+    color: #232323;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    word-break: break-word;
+}
+
+.card:hover {
+    background-color: #46494b;
+    box-shadow: 5px 5px #bcc2c4;
+}
+
+.card-body .fa {
+    margin: 5px;
+    font-size: 24px;
+}
+
+.fa-star{
+    color: yellow;
+}
+
+.fa-eye {
+    color: #537db4;
+}
+
+.card-img-top{
+    width: 12%;
+    height: 12%;
+    border-radius: 50%;
+}
+
+.text-muted{
+    font-size: 14px;
+    display: block;
+    padding: 5px 0 5px 0;
+}
+
+@media only screen and (max-width: 1024px) {
+    .card {
+        margin: 1%;
+        width: 45%;
+        border: 1px solid gray;
+        padding: 5px;
+        border-radius: 3%;
+
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .card {
+        margin: 1%;
+        width: 45%;
+        border: 1px solid gray;
+        padding: 5px;
+        border-radius: 3%;
+
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        margin: 1%;
+        width: 100%;
+        border: 1px solid gray;
+        padding: 5px;
+        border-radius: 3%;
+
+    }
+}

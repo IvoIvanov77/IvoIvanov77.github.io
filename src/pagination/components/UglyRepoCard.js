@@ -1,13 +1,16 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-const RepoCard = props => {
+const UglyRepoCard = props => {
 
 
   return (
 
       <tr>
           <th className="headcol">{props.repo.name}</th>
-          <td>{props.repo.owner.login}</td>
+          <td>
+              {props.repo.owner.login}
+              <img src={props.repo.owner.avatar_url}/>
+          </td>
           <td>{props.repo.description}</td>
           <td>{props.repo.stargazers_count}</td>
           <td>{new Date(props.repo.created_at).toDateString()}</td>
@@ -31,4 +34,4 @@ const RepoCard = props => {
 
 
 
-export default RepoCard;
+export default UglyRepoCard;

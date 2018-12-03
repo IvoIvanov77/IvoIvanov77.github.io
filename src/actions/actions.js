@@ -1,7 +1,7 @@
 import Fetcher from "../helpers/fetcher";
 import {hyperLinkToObject} from "../helpers/splitLinks";
 
-const GITHUB_API_URL = 'https://api.github.com';
+const GITHUB_API_URL = 'https://api.github.com/';
 
 function startAjaxCall() {return {type: 'START_AJAX_CALL', ajaxCalls:0}}
 function gotReposByOwner(data) {return {type: 'GOT_USER_REPOS', data}}
@@ -14,7 +14,8 @@ function handleError(errorMessage) {return {type: 'FAIL_AJAX_CALL', errorMessage
 
 export {
     getRepoByOwnerAndRepoName, getRepoTreeById, getFileContent,
-    getUserRepos, getRepoTreeByOwnerAndRepoName, searchRepos
+    getUserRepos, getRepoTreeByOwnerAndRepoName, searchRepos,
+    searchReposForInfiniteScroll
 }
 
 const fetcher = new Fetcher(GITHUB_API_URL);
@@ -22,7 +23,7 @@ const fetcher = new Fetcher(GITHUB_API_URL);
 function getData(url, dataAction, init, contentType) {
     return dispatch => {
         dispatch(startAjaxCall());
-        fetcher.get(url, init, contentType)
+        fetcher.getData(url, init, contentType)
             .then(
                 data => {
                     if(data.message){
@@ -39,14 +40,7 @@ function getData(url, dataAction, init, contentType) {
     };
 }
 
-// function getRepos(owner) {
-//     const init = {
-//         mode: "cors"
-//     };
-//
-//     const url = `users/${owner}/repos`;
-//     return getData(url, gotReposByOwner, init);
-// }
+
 
 function getUserRepos(owner) {
     return dispatch => {
@@ -59,15 +53,14 @@ function getUserRepos(owner) {
 }
 
 async function getAllRepos(owner) {
-    let fetcher = new Fetcher('');
     const init = {
         mode: "cors"
     };
-    let url = `https://api.github.com/users/${owner}/repos?per_page=100`;
+    let url = `users/${owner}/repos?per_page=100`;
     let hasNext = true;
     let allRepos = [];
     while (hasNext) {
-        let response = await fetcher.get(url, init, 'json', true);
+        let response = await fetcher.getResponse(url, init);
         let links = response.headers.get('Link');
         if(links){
             let linksObj = hyperLinkToObject(links);
@@ -112,6 +105,14 @@ function getFileContent(repoId, path) {
 function searchRepos(queryString) {
     const url = `search/repositories?q=${queryString}&per_page=100`;
     return getData(url, gotReposBySearchCriteria);
+}
+
+function searchReposForInfiniteScroll(url) {
+    const fetcher = new Fetcher('');
+    const init = {
+        mode: "cors"
+    };
+    return fetcher.getResponse(url, init);
 }
 
 // https://api.github.com/search/code?q=addClass+in:file+language:js+repo:jquery/jquery

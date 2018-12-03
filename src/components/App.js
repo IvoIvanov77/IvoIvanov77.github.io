@@ -8,6 +8,7 @@ import {HeaderContainer} from "./Comon/Header";
 import {RepoTreeViewer} from "./Directories/RepoTreeViewer";
 import {AdvancedSearchForm} from "./Forms/AdvancedSearchForm";
 import {QuerySearchResult} from "./SearchResults/QuerySearch";
+import {InfiniteScroll} from "./SearchResults/infiniteScroll";
 
 export class App extends Component{
     constructor(props){
@@ -35,7 +36,8 @@ export class App extends Component{
                     <Route exact path="/register" component={RegistrationFormContainer} />
                     <Route exact path="/login" component={LoginFormContainer} />
                     <Route exact path="/repo/:owner/:repoName" component={RepoTreeViewer} />
-                    <Route exact path="/repos/:queryString" component={QuerySearchResult} />
+                    <Route exact path="/repos/:queryString" component={InfiniteScroll} />
+                    <Route exact path="/infinite-scroll/:queryString" component={InfiniteScroll} />
                     <Route exact path="/:user/repos" component={QuerySearchResult} />
                     <Route path="/search" component={AdvancedSearchForm} />
                 </Switch>

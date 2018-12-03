@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../styles/pagination.css';
 
 import Pagination from './components/Pagination';
-import RepoCard from './components/RepoCard';
+import UglyRepoCard from './components/UglyRepoCard';
 
 class PaginationItems extends Component {
     constructor(props) {
@@ -93,7 +93,7 @@ class PaginationItems extends Component {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {currentItems.map(repo => <RepoCard key={repo.id} repo={repo}/>)}
+                                {currentItems.map(repo => <UglyRepoCard key={repo.id} repo={repo}/>)}
                                 </tbody>
 
                             </table>
