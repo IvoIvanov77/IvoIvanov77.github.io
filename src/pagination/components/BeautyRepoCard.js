@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {calcTime} from "../../helpers/calcTime";
+import {formatDate} from "../../helpers/formatDate";
 
 const BeautyRepoCard = props => {
 
@@ -11,9 +13,15 @@ const BeautyRepoCard = props => {
                 <h3 className="card-title">{repo.name}</h3>
                 <p className="card-description">{props.repo.description}</p>
                 <div className='repo-info'>
-                    <small className="text-muted">size: {repo.size / 1000}mb</small>
-                    <small className="text-muted">created at: {new Date(repo.created_at).toDateString()}</small>
-                    <small className="text-muted">last update: {repo.updated_at}</small>
+                    <small className="text-muted">Size: {repo.size / 1000}mb</small>
+                    <small className="text-muted">
+                        Created at: {formatDate(repo.created_at)} ({calcTime(repo.created_at)} ago)
+                    </small>
+                    <small
+                        className="text-muted"
+                    >
+                        Last update: {formatDate(repo.updated_at)} ({calcTime(repo.updated_at)} ago)
+                    </small>
                 </div>
 
 

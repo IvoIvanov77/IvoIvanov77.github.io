@@ -92,8 +92,8 @@ legend {
     color: #3e3e3e;
 }
 
-.form-group {
-    margin-bottom: 40px;
+.form-horizontal .form-group {
+    margin: 0 0 40px 0;
 }
 
 .error {

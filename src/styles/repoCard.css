@@ -104,7 +104,9 @@
 }
 
 .text-muted{
-    font-size: 14px;
+    font-size: 13px;
+    color: #bbbbbb;
+    font-weight: lighter;
     display: block;
     padding: 5px 0 5px 0;
 }
