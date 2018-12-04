@@ -12,6 +12,8 @@ export class AdvancedSearchForm extends Component {
                 minStars: '',
                 maxStars: ''
             },
+            sortCriteria: '',
+            sortOrder: '',
             redirect: false,
             queryString: ''
 
@@ -21,11 +23,13 @@ export class AdvancedSearchForm extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+
+
     onChange(e) {
         const target = e.target;
         const key = target.name;
         const value = target.value;
-        if(key === 'keyWord'){
+        if(key === 'keyWord' || key === 'sortCriteria' || key === 'sortOrder'){
             this.setState((prevState) => {
                 prevState[key] = value;
                 return {prevState}
@@ -47,7 +51,7 @@ export class AdvancedSearchForm extends Component {
 
     createQueryString() {
         let queryString = '';
-        const {keyWord, params} = this.state;
+        const {keyWord, params, sortCriteria, sortOrder} = this.state;
         if (keyWord) {
             queryString = queryString.concat(`${keyWord}`)
         }
@@ -72,11 +76,19 @@ export class AdvancedSearchForm extends Component {
                 }
             }
         );
+        if (sortCriteria) {
+            queryString = queryString.concat(`&sort=${sortCriteria}`);
+            if(sortOrder === 'asc'){
+                queryString = queryString.concat(`&order=${sortOrder}`);
+            }
+        }
+        console.log(queryString);
         return queryString
     }
-
+    // &sort=stars&order=desc
 
     render() {
+        console.log(this.state)
         const {queryString, redirect} = this.state;
         if (redirect) {
             return (
@@ -157,22 +169,38 @@ export class AdvancedSearchForm extends Component {
                             />
                         </div>
                     </div>
-
-
-                    {/*<div className="form-group">*/}
-                    {/*<label className="col-md-4 control-label" htmlFor="selectbasic"/>*/}
-                    {/*<div className="col-md-2">*/}
-                    {/*<input id="selectbasic" name="selectbasic" className="form-control"/>*/}
-                    {/*</div>*/}
-                    {/*</div>*/}
-
-
+                    <div className="form-group">
+                        <label className="col-md-4 control-label" htmlFor="sort-by">Sort by:</label>
+                        <div className="col-md-2">
+                            <select id="sort-by" name="sortCriteria"
+                                    className="form-control"
+                                    onChange={this.onChange}
+                            >
+                                <option value="">--------------</option>
+                                <option value="stars">Stars</option>
+                                <option value="forks">Forks</option>
+                                <option value="updated">Last update</option>
+                            </select>
+                        </div>
+                        <div className='form-check form-check-inline'>
+                            <input className="form-check-input" type="radio" value="desc" id='inlineRadio2'
+                                   name="sortOrder"  onChange={this.onChange}/>
+                            <label className="form-check-label" htmlFor="inlineRadio2">Descending</label>
+                            <input className="form-check-input" type="radio" value="asc" id='inlineRadio1'
+                                   name="sortOrder" onChange={this.onChange} />
+                            <label className="form-check-label" htmlFor="inlineRadio1">Ascending</label>
+                        </div>
+                    </div>
                     <div className="form-group">
                         <label className="col-md-4 control-label" htmlFor="submit"/>
                         <div className="col-md-4">
                             <button id="submit" name="submit" className="btn btn-primary">Search</button>
                         </div>
                     </div>
+
+
+
+
 
                 </fieldset>
             </form>
