@@ -99,11 +99,17 @@ export class InfiniteScroll extends Component {
         } = this.state;
 
         return (
-            <div className="card-deck">
-                {data.map(repo => (
-                    <BeautyRepoCard key={repo.id} repo={repo}/>
-                ))}
+            <div>
+                <div className="card-deck">
+                    {data.map(repo => (
+                        <BeautyRepoCard key={repo.id} repo={repo}/>
+                    ))}
+                </div>
+                <div className="preloader">
+                    {isLoading && <p>Loading &hellip;</p>}
+                </div>
             </div>
+
         );
     }
 }
