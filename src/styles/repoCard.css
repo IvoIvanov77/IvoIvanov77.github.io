@@ -98,8 +98,8 @@
 }
 
 .card-img-top{
-    width: 12%;
-    height: 12%;
+    max-width: 65px;
+    max-height: 65px;
     border-radius: 50%;
 }
 

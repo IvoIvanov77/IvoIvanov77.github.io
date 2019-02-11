@@ -9,7 +9,6 @@ const UglyRepoCard = props => {
           <th className="headcol">{props.repo.name}</th>
           <td>
               {props.repo.owner.login}
-              <img src={props.repo.owner.avatar_url}/>
           </td>
           <td>{props.repo.description}</td>
           <td>{props.repo.stargazers_count}</td>
@@ -19,7 +18,7 @@ const UglyRepoCard = props => {
 
 
           <td>
-              <a href={props.repo.html_url}>
+              <a href={props.repo.html_url} target='_blank' rel="noopener noreferrer">
                   <i className="fa fa-folder-open-o"/>
                   open
               </a>

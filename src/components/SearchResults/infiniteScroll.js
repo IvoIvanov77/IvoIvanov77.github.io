@@ -1,10 +1,8 @@
 import React, {Component} from "react";
 import {searchReposForInfiniteScroll} from '../../actions/actions'
 import {hyperLinkToObject} from "../../helpers/splitLinks";
-// import UglyRepoCard from "../../pagination/components/UglyRepoCard";
-// import {Table} from "react-bootstrap";
 import '../../styles/repoCard.css'
-import BeautyRepoCard from "../../pagination/components/BeautyRepoCard";
+import BeautyRepoCard from "../pagination/components/BeautyRepoCard";
 
 export class InfiniteScroll extends Component {
     constructor(props) {
@@ -92,8 +90,6 @@ export class InfiniteScroll extends Component {
 
     render() {
         const {
-            error,
-            hasMore,
             isLoading,
             data,
         } = this.state;

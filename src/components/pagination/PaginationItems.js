@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../styles/pagination.css';
+import '../../styles/pagination.css';
 
 import Pagination from './components/Pagination';
 import UglyRepoCard from './components/UglyRepoCard';

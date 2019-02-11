@@ -66,7 +66,7 @@ export class AdvancedSearchForm extends Component {
                             if(queryString.endsWith('*')){
                                 queryString = queryString.replace(/.$/,value)
                             }else{
-                                queryString = queryString.concat(` stars:..${value}`);
+                                queryString = queryString.concat(` stars:*..${value}`);
                             }
 
                             break;

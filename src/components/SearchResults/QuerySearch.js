@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import PaginationItems from "../../pagination/PaginationItems";
+import PaginationItems from "../pagination/PaginationItems";
 import {getUserRepos, searchRepos} from "../../actions/actions";
 
 class QuerySearch extends Component {

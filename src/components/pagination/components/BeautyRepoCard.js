@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {calcTime} from "../../helpers/calcTime";
-import {formatDate} from "../../helpers/formatDate";
+import {calcTime} from "../../../helpers/calcTime";
+import {formatDate} from "../../../helpers/formatDate";
 
 const BeautyRepoCard = props => {
 
@@ -43,6 +43,8 @@ const BeautyRepoCard = props => {
                 </Link>
                 <a
                     href={repo.html_url}
+                    target='_blank'
+                    rel='noopener noreferrer'
                     type="button"
                     className="btn btn-secondary"
                 >
@@ -51,8 +53,7 @@ const BeautyRepoCard = props => {
             </div>
 
             <div className='repo-owner'>
-                <img className="card-img-top" src={repo.owner.avatar_url}
-                     alt="picture"/>
+                <img className="card-img-top" src={repo.owner.avatar_url} alt="avatar"/>
                 <h4 className='owner-name'>{repo.owner.login}</h4>
 
             </div>
